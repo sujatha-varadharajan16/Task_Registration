@@ -1,0 +1,92 @@
+# Assignment: Email Registration 
+
+import re
+
+pattern1 = "^[a-z 0-9]+[\._]?[a-z 0-9]+[@][a-z]{4,5}[.][a-z]{2,3}$"
+
+user_id = input("Enter mail id:")
+if re.search(pattern1, user_id):
+  print("Valid mail id")
+
+else:
+  print("Invalid mail id")
+
+import re
+
+pattern2 = re.compile(r'')
+while True:
+ password = input("Enter your password:")
+ if len(password)<5: #and len(password)>16:
+   print("Password length should be between 5 to 16 characters")
+ elif len(password)>16:
+   print("Password length should be between 5 to 16 characters")
+ elif re.search(r'[!@#$%&]',password) is None:
+     print("password must contain atleast one special character")
+ elif re.search(r'\d',password) is None:
+     print("password must contain atleast one digit")
+ elif re.search(r'[A-Z]',password) is None:
+     print("password must contain atleast one Uppercase character")
+ elif re.search(r'[a-z]',password) is None:
+     print("password must contain atleast one Lowercase character")
+ elif re.match(r'[a-z A-Z 0-9 !@#$%&]{5,16}',password):
+    #pattern2=re.compile(r'[a-z A-Z 0-9 !@#$%&]{5,16}',password)
+    result = pattern2.match(password)
+    print('Password validated')
+    file1 = open("data.txt","w")
+    file1.write(f"Username/Email:{user_id}")
+    file1.write(f"\nPassword:{password}")
+    file1.close()
+    break
+ else:
+    print('Invalid Password,enter the right one')
+
+print("Login to your id")
+enter_user_name = input("Enter User name:")
+if user_id == enter_user_name:
+  enter_password = input("Enter Password")
+  if password == enter_password:
+    print("Login successful")
+  elif password != enter_password:
+      print("Invalid password")
+      print("Enter a new password if password forgotten")
+      import re
+      patter3 = re.compile('r')
+      while True:
+        Enter_new_password = input("Enter new password:")
+        if len(Enter_new_password)<5: #and len(password)>16:
+          print("Password length should be between 5 to 16 characters")
+        elif len(Enter_new_password)>16:
+          print("Password length should be between 5 to 16 characters")
+        elif re.search(r'[!@#$%&]',Enter_new_password) is None:
+          print("password must contain atleast one special character")
+        elif re.search(r'\d',Enter_new_password) is None:
+          print("password must contain atleast one digit")
+        elif re.search(r'[A-Z]',Enter_new_password) is None:
+          print("password must contain atleast one Uppercase character")
+        elif re.search(r'[a-z]',Enter_new_password) is None:
+          print("password must contain atleast one Lowercase character")
+        elif re.match(r'[a-z A-Z 0-9 !@#$%&]{5,16}',Enter_new_password):
+           result = pattern3.match(Enter_new_password)
+           file2 = open("data2.txt","w")
+           file2.write(f"Username/Email:{enter_user_name}")
+           file2.write(f"\nPassword:{Enter_new_password}")
+           file2.close()
+           print("Login to your mail id with new password")
+           enter_user_name_again = input("Enter username again:")
+           Enter_a_new_password = input("Enter your new password:")
+           print("Login successful")
+           break
+        else:
+           print("Kindly do registration")
+
+           
+
+  else:
+    print("Invalid password")
+else:
+  print("Invalid Username")
+  
+
+
+
+
